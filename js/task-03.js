@@ -12,3 +12,10 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+for (let i of images) {
+  const image = document.createElement("img");
+  image.src = i.url;
+  image.alt = i.alt;
+  console.log(image);
+}
