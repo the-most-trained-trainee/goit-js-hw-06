@@ -13,9 +13,35 @@ const images = [
   },
 ];
 
+// My code below 
+
+let imageInclusion = [];
+
 for (let i of images) {
+
   const image = document.createElement("img");
   image.src = i.url;
   image.alt = i.alt;
-  console.log(image);
+  image.width = "125";
+  image.height = "83";
+  image.style.display = "block"
+  
+  const listItem = document.createElement("li");
+
+  listItem.style.border = "double #AFB1B8 1px"
+  listItem.style.padding = "4px"
+  listItem.style.boxShadow = "rgb(38, 57, 77) 0px 20px 30px -10px"
+  listItem.insertAdjacentHTML("beforeend", `<h1 style="font-size: 8px;color:#757575;text-align:center;">Picture</р>`);
+
+  listItem.appendChild(image);
+  imageInclusion.push(listItem);
+
 }
+
+const imageList = document.querySelector(".gallery");
+ 
+imageList.style.listStyle = "none";
+imageList.style.display = "flex";
+imageList.style.gap = "20px";
+
+imageList.append(...imageInclusion);
