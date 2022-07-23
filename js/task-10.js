@@ -12,14 +12,25 @@ const boxesContainer = document.querySelector("#boxes");
 let divInclusion = [];
 
 
-createButton.addEventListener("click", () => { 
-
+function createBoxes() { 
   for (let i = 0; i < divQuantity.value; i++) {
     let div = document.createElement("div");
     div.style.width = `${i * 10 + 30}px`;
+    div.style.height = `${i * 10 + 30}px`;
+    div.style.display = "inline-block"
     div.style.background = getRandomHexColor();
     divInclusion.push(div);
-  }
-  console.log(divInclusion)
+  };
+  boxesContainer.append(...divInclusion);
+};
 
-})
+function destroyBoxes() {
+  while (boxesContainer.firstChild) {
+    boxesContainer.removeChild(boxesContainer.firstChild);
+  };
+};
+
+createButton.addEventListener("click", createBoxes);
+destroyButton.addEventListener("click", destroyBoxes);
+
+
