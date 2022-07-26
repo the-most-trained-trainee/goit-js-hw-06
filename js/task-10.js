@@ -5,23 +5,17 @@ function getRandomHexColor() {
 // My code below
 
 const divQuantity = document.querySelector("#controls > input");
-const calculateButtons = document.querySelectorAll("button");
-const createButton = calculateButtons[0];
-const destroyButton = calculateButtons[1];
+const createButton = document.querySelector("[data-create]");
+const destroyButton = document.querySelector("[data-destroy]");
 const boxesContainer = document.querySelector("#boxes");
 let divInclusion = [];
 
-
 function createBoxes() { 
   for (let i = 0; i < divQuantity.value; i++) {
-    let div = document.createElement("div");
-    div.style.width = `${i * 10 + 30}px`;
-    div.style.height = `${i * 10 + 30}px`;
-    div.style.display = "inline-block"
-    div.style.background = getRandomHexColor();
+    let div = `<div style="width: ${i * 10 + 30}px; height: ${i * 10 + 30}px; display: inline-block; background: ${getRandomHexColor()}"></div>`
     divInclusion.push(div);
   };
-  boxesContainer.append(...divInclusion);
+  boxesContainer.insertAdjacentHTML("beforeend", divInclusion.join(""));
 };
 
 function destroyBoxes() {
@@ -32,5 +26,3 @@ function destroyBoxes() {
 
 createButton.addEventListener("click", createBoxes);
 destroyButton.addEventListener("click", destroyBoxes);
-
-

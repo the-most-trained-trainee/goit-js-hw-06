@@ -18,6 +18,6 @@ function onSubmit(event) {
                 formOutPut[name] = value;
             });
         event.currentTarget.reset();
-        console.log(formOutPut)
+        console.log(formOutPut);
     }
 }

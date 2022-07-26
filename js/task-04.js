@@ -2,17 +2,16 @@
 
 let counterValue = 0;
 
-const calculateButtons = document.querySelectorAll("button");
-const incrementButton = calculateButtons[1];
-const decrementButton = calculateButtons[0];
+const incrementButton = document.querySelector("[data-action=increment]");
+const decrementButton = document.querySelector("[data-action=decrement]");
 const scoreField = document.querySelector("#value");
 
 incrementButton.addEventListener("click", () => {
-    counterValue++;
+    counterValue += 1;
     scoreField.textContent = counterValue;
 });
 
 decrementButton.addEventListener("click", () => {
-    counterValue--;
+    counterValue -= 1;
     scoreField.textContent = counterValue;
 });
